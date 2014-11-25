@@ -18,17 +18,17 @@
 
 				<form class="deliveryForm">
 
-					<label for="isbn">ISBN nummer:</label>
-					<input type="number" name="isbn" max length="16" size="16" required>
+					<label for="books_isbn">ISBN nummer:</label>
+					<input type="number" name="books_isbn" required>
 
-					<label for="f-pris">F-pris:</label>
-					<input type="number" name="f-pris" size="5" required>
+					<label for="f_price">F-pris:</label>
+					<input type="number" name="f_price" required>
 
-					<label for="datum">Datum för leverans:</label>
-					<input type="date" name="datum" placeholder="dd/mm/yyyy" required>
+					<label for="date">Datum för leverans:</label>
+					<input type="date" name="date" placeholder="dd/mm/yyyy" required>
 
-					<label for="antal">Antal:</label>
-					<input type="number" name="antal" size="5" required>
+					<label for="quantity">Antal:</label>
+					<input type="number" name="quantity" required>
 
 					<label for="hyllanr">Hylla:</label>
 					<select name="hyllanr">
@@ -47,8 +47,9 @@
 					  <option value="H13">H13</option>
 					  <option value="H14">H14</option>
 					</select>
+
 					<label for="saleAdd">Försäljnings faktor:</label>
-					<input type="number" name="saleAdd" size="4">
+					<input type="number" name="saleAdd" required>
 
 					<input id="CTA" type="reset">
 
