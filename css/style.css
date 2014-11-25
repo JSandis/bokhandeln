@@ -1,0 +1,65 @@
+body {
+  	font-family:Verdana, sans-serif;
+  	font-size: 14px;
+
+}
+
+
+/*For Mocrosoft!*/
+main {
+  display:block;
+}
+
+/*section holding the delivery form*/
+.insertDelivery {
+	width: 100%;
+	font-size: 15px;
+}
+
+/*the delivery form*/
+.deliveryForm {
+	width: 40%;
+	margin: 100px auto 30px auto;
+	padding: 50px;
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.deliveryForm input {
+	font-size: 15px;
+	display: block;
+	margin: 5px 0 25px 0;
+	padding-left: 10px;
+	border: 0;
+	border-radius: 6px;
+	width: 90%;
+	height: 40px;
+}
+
+.deliveryForm input:last-child {
+	margin: 20px auto 0 auto;
+	color: white;
+	background-color: #32CD32;
+	width: 60%;
+	height: 60px;
+}
+
+#CTA {
+	margin: 0 auto;
+	width: 60%;
+	background-color: #D3D3D3;
+}
+
+.deliveryForm select {
+   	width: 20%;
+   	height: 40px;
+   	font-size: 15px;
+   	border: 1px solid gray;
+   	border-radius: 0;
+   	margin-bottom: 50px;
+}
+
+
+
+
+
