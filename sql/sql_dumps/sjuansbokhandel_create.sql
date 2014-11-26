@@ -18,7 +18,6 @@ CREATE TABLE books (
     isbn int    NOT NULL ,
     title varchar(255)    NOT NULL ,
     author varchar(255)    NOT NULL ,
-    quantity int    NOT NULL ,
     CONSTRAINT books_pk PRIMARY KEY (isbn)
 );
 
