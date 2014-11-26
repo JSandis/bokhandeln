@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Tid vid skapande: 26 nov 2014 kl 21:32
+-- Tid vid skapande: 26 nov 2014 kl 21:40
 -- Serverversion: 5.6.15
 -- PHP-version: 5.3.28
 
@@ -59,10 +59,10 @@ CREATE TABLE IF NOT EXISTS `book_shelfs` (
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `delivery`
+-- Tabellstruktur `deliveries`
 --
 
-CREATE TABLE IF NOT EXISTS `delivery` (
+CREATE TABLE IF NOT EXISTS `deliveries` (
 `id` int(11) NOT NULL,
   `f_price` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -118,10 +118,10 @@ ALTER TABLE `book_shelfs`
  ADD PRIMARY KEY (`isbn`), ADD KEY `book_shelfs_shelfs` (`shelfs_id`);
 
 --
--- Index för tabell `delivery`
+-- Index för tabell `deliveries`
 --
-ALTER TABLE `delivery`
- ADD PRIMARY KEY (`id`), ADD KEY `delivery_books` (`isbn`);
+ALTER TABLE `deliveries`
+ ADD PRIMARY KEY (`id`), ADD KEY `deliveries_books` (`isbn`);
 
 --
 -- Index för tabell `sales`
@@ -145,9 +145,9 @@ ALTER TABLE `shelfs`
 ALTER TABLE `books_prices`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT för tabell `delivery`
+-- AUTO_INCREMENT för tabell `deliveries`
 --
-ALTER TABLE `delivery`
+ALTER TABLE `deliveries`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT för tabell `sales`
@@ -177,10 +177,10 @@ ADD CONSTRAINT `book_shelfs_shelfs` FOREIGN KEY (`shelfs_id`) REFERENCES `shelfs
 ADD CONSTRAINT `book_shelfs_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`);
 
 --
--- Restriktioner för tabell `delivery`
+-- Restriktioner för tabell `deliveries`
 --
-ALTER TABLE `delivery`
-ADD CONSTRAINT `delivery_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`);
+ALTER TABLE `deliveries`
+ADD CONSTRAINT `deliveries_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`);
 
 --
 -- Restriktioner för tabell `sales`
