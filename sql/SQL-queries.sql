@@ -10,3 +10,4 @@
 INSERT INTO delivery (books_isbn, f_price, date, quantity)
 VALUES ({books_isbn}, {f_price}, {date}, {quantity});
 
+

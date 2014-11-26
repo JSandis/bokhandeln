@@ -16,7 +16,7 @@ $(function(){
 			dataType:"json",
 
 			data:{
-				sql:"sql/SQL-queries.sql",
+				sql:"sql/sql-queries.sql",
 				run:"save deliveryInfo to db-dilivery",
 				//data to send
 				books_isbn: JSON.stringify(deliveryInfo.books_isbn),
