@@ -9,7 +9,24 @@ $(function(){
 			deliveryInfo[this.name] = $(this).val();
 		});
 		//Just to controll it is working
-		console.log('deliveryInfo: ', deliveryInfo);
+		//console.log('deliveryInfo: ', deliveryInfo);
+
+		$.ajax({
+			url:"libs/sql-ajax-json.php",
+			dataType:"json",
+
+			data:{
+				sql:"sql/SQL-queries.sql",
+				run:"save deliveryInfo to db-dilivery",
+				//data to send
+				//coming soon :) ...
+			},
+
+			seccess: function(){},
+
+			error: function(){}
+
+		});
 
 
 		return false;
