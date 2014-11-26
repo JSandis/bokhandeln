@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Tid vid skapande: 26 nov 2014 kl 19:57
+-- Tid vid skapande: 26 nov 2014 kl 20:22
 -- Serverversion: 5.6.15
 -- PHP-version: 5.3.28
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `books_prices` (
 `id` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `books_isbn` int(11) NOT NULL
+  `isbn` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -53,22 +53,22 @@ CREATE TABLE IF NOT EXISTS `books_prices` (
 --
 
 CREATE TABLE IF NOT EXISTS `book_shelfs` (
-  `books_isbn` int(11) NOT NULL,
+  `isbn` int(11) NOT NULL,
   `shelfs_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `delivery`
+-- Tabellstruktur `deliveries`
 --
 
-CREATE TABLE IF NOT EXISTS `delivery` (
+CREATE TABLE IF NOT EXISTS `deliveries` (
 `id` int(11) NOT NULL,
   `f_price` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `books_isbn` int(11) NOT NULL
+  `isbn` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
 `id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `date` date NOT NULL,
-  `books_isbn` int(11) NOT NULL
+  `isbn` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -110,25 +110,25 @@ ALTER TABLE `books`
 -- Index för tabell `books_prices`
 --
 ALTER TABLE `books_prices`
- ADD PRIMARY KEY (`id`), ADD KEY `books_prices_books` (`books_isbn`);
+ ADD PRIMARY KEY (`id`), ADD KEY `books_prices_books` (`isbn`);
 
 --
 -- Index för tabell `book_shelfs`
 --
 ALTER TABLE `book_shelfs`
- ADD PRIMARY KEY (`books_isbn`), ADD KEY `book_shelfs_shelfs` (`shelfs_id`);
+ ADD PRIMARY KEY (`isbn`), ADD KEY `book_shelfs_shelfs` (`shelfs_id`);
 
 --
--- Index för tabell `delivery`
+-- Index för tabell `deliveries`
 --
-ALTER TABLE `delivery`
- ADD PRIMARY KEY (`id`), ADD KEY `delivery_books` (`books_isbn`);
+ALTER TABLE `deliveries`
+ ADD PRIMARY KEY (`id`), ADD KEY `delivery_books` (`isbn`);
 
 --
 -- Index för tabell `sales`
 --
 ALTER TABLE `sales`
- ADD PRIMARY KEY (`id`), ADD KEY `sales_books` (`books_isbn`);
+ ADD PRIMARY KEY (`id`), ADD KEY `sales_books` (`isbn`);
 
 --
 -- Index för tabell `shelfs`
@@ -146,9 +146,9 @@ ALTER TABLE `shelfs`
 ALTER TABLE `books_prices`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT för tabell `delivery`
+-- AUTO_INCREMENT för tabell `deliveries`
 --
-ALTER TABLE `delivery`
+ALTER TABLE `deliveries`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT för tabell `sales`
@@ -168,26 +168,26 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- Restriktioner för tabell `books_prices`
 --
 ALTER TABLE `books_prices`
-ADD CONSTRAINT `books_prices_books` FOREIGN KEY (`books_isbn`) REFERENCES `books` (`isbn`);
+ADD CONSTRAINT `books_prices_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`);
 
 --
 -- Restriktioner för tabell `book_shelfs`
 --
 ALTER TABLE `book_shelfs`
-ADD CONSTRAINT `book_shelfs_shelfs` FOREIGN KEY (`shelfs_id`) REFERENCES `shelfs` (`id`),
-ADD CONSTRAINT `book_shelfs_books` FOREIGN KEY (`books_isbn`) REFERENCES `books` (`isbn`);
+ADD CONSTRAINT `book_shelfs_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`),
+ADD CONSTRAINT `book_shelfs_shelfs` FOREIGN KEY (`shelfs_id`) REFERENCES `shelfs` (`id`);
 
 --
--- Restriktioner för tabell `delivery`
+-- Restriktioner för tabell `deliveries`
 --
-ALTER TABLE `delivery`
-ADD CONSTRAINT `delivery_books` FOREIGN KEY (`books_isbn`) REFERENCES `books` (`isbn`);
+ALTER TABLE `deliveries`
+ADD CONSTRAINT `delivery_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`);
 
 --
 -- Restriktioner för tabell `sales`
 --
 ALTER TABLE `sales`
-ADD CONSTRAINT `sales_books` FOREIGN KEY (`books_isbn`) REFERENCES `books` (`isbn`);
+ADD CONSTRAINT `sales_books` FOREIGN KEY (`isbn`) REFERENCES `books` (`isbn`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
