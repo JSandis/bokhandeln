@@ -19,12 +19,15 @@ $(function(){
 				sql:"sql/SQL-queries.sql",
 				run:"save deliveryInfo to db-dilivery",
 				//data to send
-				//coming soon :) ...
+				books_isbn: JSON.stringify(deliveryInfo.books_isbn),
+				f_price: JSON.stringify(deliveryInfo.f_price),
+				date: JSON.stringify(deliveryInfo.date),
+				quantity: JSON.stringify(deliveryInfo.quantity)
 			},
 
-			seccess: function(){},
+			seccess: function(data){},
 
-			error: function(){}
+			error: function(data){}
 
 		});
 
