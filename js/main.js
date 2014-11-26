@@ -25,7 +25,7 @@ $(function(){
 				quantity: JSON.stringify(deliveryInfo.quantity)
 			},
 
-			seccess: function(data){},
+			success: function(data){},
 
 			error: function(data){}
 
