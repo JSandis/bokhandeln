@@ -8,14 +8,14 @@ CREATE SCHEMA sjuansbokhandel ;
 
 -- Table: book_shelfs
 CREATE TABLE book_shelfs (
-    books_isbn int    NOT NULL ,
+    isbn int(13)    NOT NULL ,
     shelfs_id int    NOT NULL ,
-    CONSTRAINT book_shelfs_pk PRIMARY KEY (books_isbn)
+    CONSTRAINT book_shelfs_pk PRIMARY KEY (isbn)
 );
 
 -- Table: books
 CREATE TABLE books (
-    isbn int    NOT NULL ,
+    isbn int(13)    NOT NULL ,
     title varchar(255)    NOT NULL ,
     author varchar(255)    NOT NULL ,
     CONSTRAINT books_pk PRIMARY KEY (isbn)
@@ -26,7 +26,7 @@ CREATE TABLE books_prices (
     id int    NOT NULL  AUTO_INCREMENT,
     price decimal(10,2)    NOT NULL ,
     date timestamp    NOT NULL ,
-    books_isbn int    NOT NULL ,
+    isbn int(13)    NOT NULL ,
     CONSTRAINT books_prices_pk PRIMARY KEY (id)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE delivery (
     f_price decimal(10,2)    NOT NULL ,
     quantity int    NOT NULL ,
     date timestamp    NOT NULL ,
-    books_isbn int    NOT NULL ,
+    isbn int(13)    NOT NULL ,
     CONSTRAINT delivery_pk PRIMARY KEY (id)
 );
 
@@ -45,7 +45,7 @@ CREATE TABLE sales (
     id int    NOT NULL  AUTO_INCREMENT,
     quantity int    NOT NULL ,
     date date    NOT NULL ,
-    books_isbn int    NOT NULL ,
+    isbn int(13)    NOT NULL ,
     CONSTRAINT sales_pk PRIMARY KEY (id)
 );
 
@@ -62,7 +62,7 @@ CREATE TABLE shelfs (
 -- FOREIGN KEYS
 
 -- Reference:  book_shelfs_books (table: book_shelfs)
-ALTER TABLE book_shelfs ADD CONSTRAINT book_shelfs_books FOREIGN KEY book_shelfs_books (books_isbn)
+ALTER TABLE book_shelfs ADD CONSTRAINT book_shelfs_books FOREIGN KEY book_shelfs_books (isbn)
     REFERENCES books (isbn);
 
 -- Reference:  book_shelfs_shelfs (table: book_shelfs)
@@ -70,14 +70,14 @@ ALTER TABLE book_shelfs ADD CONSTRAINT book_shelfs_shelfs FOREIGN KEY book_shelf
     REFERENCES shelfs (id);
 
 -- Reference:  books_prices_books (table: books_prices)
-ALTER TABLE books_prices ADD CONSTRAINT books_prices_books FOREIGN KEY books_prices_books (books_isbn)
+ALTER TABLE books_prices ADD CONSTRAINT books_prices_books FOREIGN KEY books_prices_books (isbn)
     REFERENCES books (isbn);
 
 -- Reference:  delivery_books (table: delivery)
-ALTER TABLE delivery ADD CONSTRAINT delivery_books FOREIGN KEY delivery_books (books_isbn)
+ALTER TABLE delivery ADD CONSTRAINT delivery_books FOREIGN KEY delivery_books (isbn)
     REFERENCES books (isbn);
 
 -- Reference:  sales_books (table: sales)
-ALTER TABLE sales ADD CONSTRAINT sales_books FOREIGN KEY sales_books (books_isbn)
+ALTER TABLE sales ADD CONSTRAINT sales_books FOREIGN KEY sales_books (isbn)
     REFERENCES books (isbn);
 
