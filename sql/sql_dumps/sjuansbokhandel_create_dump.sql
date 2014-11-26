@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Tid vid skapande: 26 nov 2014 kl 20:22
+-- Tid vid skapande: 26 nov 2014 kl 20:51
 -- Serverversion: 5.6.15
 -- PHP-version: 5.3.28
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `books` (
-  `isbn` int(11) NOT NULL,
+  `isbn` int(13) NOT NULL,
   `title` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `quantity` int(11) NOT NULL
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `books_prices` (
 `id` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isbn` int(11) NOT NULL
+  `isbn` int(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `books_prices` (
 --
 
 CREATE TABLE IF NOT EXISTS `book_shelfs` (
-  `isbn` int(11) NOT NULL,
+  `isbn` int(13) NOT NULL,
   `shelfs_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `deliveries` (
   `f_price` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `isbn` int(11) NOT NULL
+  `isbn` int(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
 `id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `date` date NOT NULL,
-  `isbn` int(11) NOT NULL
+  `isbn` int(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `shelfs` (
 `id` int(11) NOT NULL,
   `code` char(1) NOT NULL,
   `number` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Index för dumpade tabeller
@@ -159,7 +159,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT för tabell `shelfs`
 --
 ALTER TABLE `shelfs`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Restriktioner för dumpade tabeller
 --
