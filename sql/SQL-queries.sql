@@ -54,3 +54,6 @@ GROUP BY isbn;
 
 -- END OF FOR CUSTOMER SEARCH FORM
 
+# search for title and quantity by isbn
+SELECT title, quantity FROM books INNER JOIN deliveries
+on books.isbn = deliveries.isbn;
