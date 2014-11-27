@@ -8,10 +8,12 @@
 -- FOR DELIVERY FORM
 
 -- Shelfs will be shown in a drop-down list in form - must have shelfs saved
+
 # get shelfs
 SELECT * FROM shelfs;
 
 -- END OF FOR DELIVERY FORM
+
 
 
 -- REGISTER DELIVERY OF A BOOK
@@ -29,6 +31,7 @@ INSERT INTO book_shelfs (isbn, shelfs_id)
 VALUES ({isbn}, {shelfs_id});
 
 -- END OF REGISTER DELIVERY OF A BOOK
+
 
 
 -- REGISTER PRICE 

@@ -17,7 +17,7 @@ $(function(){
 
 			data:{
 				sql:"sql/sql-queries.sql",
-				run:"save deliveryInfo to db-dilivery",
+				run:"register delivery",
 				//data to send
 				books_isbn: JSON.stringify(deliveryInfo.books_isbn),
 				f_price: JSON.stringify(deliveryInfo.f_price),
