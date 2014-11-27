@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Tid vid skapande: 26 nov 2014 kl 21:40
+-- Tid vid skapande: 27 nov 2014 kl 11:00
 -- Serverversion: 5.6.15
 -- PHP-version: 5.3.28
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 CREATE TABLE IF NOT EXISTS `books_prices` (
 `id` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `isbn` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `deliveries` (
 `id` int(11) NOT NULL,
   `f_price` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `isbn` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `deliveries` (
 CREATE TABLE IF NOT EXISTS `sales` (
 `id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `date` date NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `isbn` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

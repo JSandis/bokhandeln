@@ -8,52 +8,52 @@ CREATE SCHEMA sjuansbokhandel ;
 
 -- Table: book_shelfs
 CREATE TABLE book_shelfs (
-    isbn bigint(13)    NOT NULL ,
-    shelfs_id int    NOT NULL ,
+    isbn bigint(13) NOT NULL,
+    shelfs_id int NOT NULL,
     CONSTRAINT book_shelfs_pk PRIMARY KEY (isbn)
 );
 
 -- Table: books
 CREATE TABLE books (
-    isbn bigint(13)    NOT NULL ,
-    title varchar(255)    NOT NULL ,
-    author varchar(255)    NOT NULL ,
+    isbn bigint(13) NOT NULL,
+    title varchar(255) NOT NULL,
+    author varchar(255) NOT NULL,
     CONSTRAINT books_pk PRIMARY KEY (isbn)
 );
 
 -- Table: books_prices
 CREATE TABLE books_prices (
-    id int    NOT NULL  AUTO_INCREMENT,
-    price decimal(10,2)    NOT NULL ,
-    date timestamp    NOT NULL ,
-    isbn bigint(13)    NOT NULL ,
+    id int NOT NULL AUTO_INCREMENT,
+    price decimal(10,2) NOT NULL,
+    date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    isbn bigint(13) NOT NULL,
     CONSTRAINT books_prices_pk PRIMARY KEY (id)
 );
 
 -- Table: deliveries
 CREATE TABLE deliveries (
-    id int    NOT NULL  AUTO_INCREMENT,
-    f_price decimal(10,2)    NOT NULL ,
-    quantity int    NOT NULL ,
-    date timestamp    NOT NULL ,
-    isbn bigint(13)    NOT NULL ,
+    id int NOT NULL AUTO_INCREMENT,
+    f_price decimal(10,2) NOT NULL,
+    quantity int NOT NULL,
+    date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    isbn bigint(13) NOT NULL,
     CONSTRAINT deliveries_pk PRIMARY KEY (id)
 );
 
 -- Table: sales
 CREATE TABLE sales (
-    id int    NOT NULL  AUTO_INCREMENT,
-    quantity int    NOT NULL ,
-    date date    NOT NULL ,
-    isbn bigint(13)    NOT NULL ,
+    id int NOT NULL AUTO_INCREMENT,
+    quantity int NOT NULL,
+    date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    isbn bigint(13) NOT NULL,
     CONSTRAINT sales_pk PRIMARY KEY (id)
 );
 
 -- Table: shelfs
 CREATE TABLE shelfs (
-    id int    NOT NULL  AUTO_INCREMENT,
-    code char(1)    NOT NULL ,
-    number int    NOT NULL ,
+    id int NOT NULL AUTO_INCREMENT,
+    code char(1) NOT NULL,
+    number int NOT NULL,
     CONSTRAINT shelfs_pk PRIMARY KEY (id)
 );
 
