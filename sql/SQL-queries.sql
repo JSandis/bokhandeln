@@ -32,7 +32,8 @@ VALUES ({isbn}, {shelfs_id});
 
 
 -- REGISTER PRICE 
--- (WHEN REGISTERING DELIVERY OF A BOOK OR ADD A NEW PRICE TO A BOOK)
+-- (WHEN REGISTERING DELIVERY OF A BOOK 
+--	OR ADDING A NEW PRICE TO A BOOK)
 # register price
 INSERT INTO books_prices (price, date, isbn)
 VALUES ({price}, {date}, {isbn});
@@ -43,8 +44,13 @@ VALUES ({price}, {date}, {isbn});
 INSERT INTO sales (quantity, date, isbn)
 VALUES ({quantity}, {date}, {isbn});
 
+
+-- FOR CUSTOMER SEARCH FORM
+
 # get book stock
 SELECT isbn, SUM(quantity) in_stock FROM 
 	(SELECT isbn, quantity FROM deliveries UNION SELECT isbn, -quantity FROM sales) b 
 GROUP BY isbn;
+
+-- END OF FOR CUSTOMER SEARCH FORM
 
