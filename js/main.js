@@ -4,12 +4,13 @@ $(function(){
 	$('.insertDelivery .deliveryForm').submit(function(){
 		var deliveryInfo = {};
 		//Here 'this' is the <form>
+		//ask HUGO about .not input type=reset
 		$(this).find('input').not("input[type='submit']").each(function(){
 			//Here 'this' is the each input on <form>
 			deliveryInfo[this.name] = $(this).val();
 		});
 		//Just to controll it is working
-		//console.log('deliveryInfo: ', deliveryInfo);
+		console.log('deliveryInfo: ', deliveryInfo);
 
 		//ajax for register delivery (isbn, f_price, date, quantity)
 		//to db/deliveries
