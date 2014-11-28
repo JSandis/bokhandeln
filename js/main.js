@@ -16,22 +16,27 @@ $(function(){
 		//to db/deliveries
 		$.ajax({
 			url:"libs/sql-ajax-json.php",
+
 			dataType:"json",
 
 			data:{
 				sql:"sql/sql-queries.sql",
 				run:"register delivery",
 				//data to send
-				isbn: JSON.stringify(deliveryInfo.isbn),
-				f_price: JSON.stringify(deliveryInfo.f_price),
-				date: JSON.stringify(deliveryInfo.date),
-				quantity: JSON.stringify(deliveryInfo.quantity)
+				isbn: JSON.stringify(deliveryInfo["isbn"]),
+				f_price: JSON.stringify(deliveryInfo["f_price"]),
+				date: JSON.stringify(deliveryInfo["date"]),
+				quantity: JSON.stringify(deliveryInfo["quantity"])
 
 			},
 
-			success: function(data){},
+			success: function(data){
+				console.log("success: ", data);
+			},
 
-			error: function(data){}
+			error: function(data){
+				console.log("error: ", data);
+			}
 
 		});
 
