@@ -57,6 +57,7 @@ main {
    	border: 1px solid gray;
    	border-radius: 0;
    	margin-bottom: 50px;
+   	display: block;
 }
 
 
