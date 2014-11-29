@@ -101,5 +101,48 @@ main {
 }
 
 
+/*section holding the sale table (US3)*/
+.saleTableHolder {
+	width: 100%;
+	font-size: 15px;
+}
+
+/*the sale table*/
+.saleTable {
+	width: 90%;
+	margin: 100px auto 30px auto;
+	background-color: #DCDCDC;
+	border-radius: 10px;
+}
+
+.saleTable caption {
+	margin-bottom: 10px;
+}
+
+.saleTable tr {
+	text-align: left;
+
+}
+
+.saleTable th:first-child, td:first-child {
+	padding: 10px;
+	border-left: 0;
+}
+
+.saleTable th,td {
+	padding: 15px;
+	border-left: 1px solid #C0C0C0;
+}
+
+.saleTable tbody tr:nth-child(even) {
+	background-color: #F5F5F5;	
+}
+
+.saleTable tbody tr:nth-child(odd) {
+	background-color: #FFFFFF;	
+}
+
+
+
 
 
