@@ -5,7 +5,7 @@ $(function(){
 		var deliveryInfo = {};
 		//Here 'this' is the <form>
 		//ask HUGO about .not input type=reset
-		$(this).find('input').not("input[type='submit']").each(function(){
+		$(this).find('input').not("input[type='submit'], input[type='reset']").each(function(){
 			//Here 'this' is the each input on <form>
 			deliveryInfo[this.name] = $(this).val();
 		});
