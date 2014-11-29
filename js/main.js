@@ -40,6 +40,34 @@ $(function(){
 
 		});
 
+		//ajax for register delivery in book(isbn, title, description)
+		//to db/deliveries
+		$.ajax({
+			url:"libs/sql-ajax-json.php",
+
+			dataType:"json",
+
+			data:{
+				sql:"sql/sql-queries.sql",
+				run:"register book",
+				//data to send
+				isbn: JSON.stringify(deliveryInfo["isbn"]),
+				title: JSON.stringify(deliveryInfo["title"]),
+				description: JSON.stringify(deliveryInfo["description"])
+
+			},
+
+			success: function(data){
+				//console.log("success: ", data);
+			},
+
+			error: function(data){
+				//console.log("error: ", data);
+			}
+
+		});
+
+
 		//ajax for register (isbn, shelfs_id) to db/book_shelfs
 		$.ajax({
 			url:"libs/sql-ajax-json.php",
