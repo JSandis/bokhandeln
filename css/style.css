@@ -11,13 +11,13 @@ main {
 }
 
 /*section holding the delivery form*/
-.insertDelivery {
+.insertDelivery, .customerView {
 	width: 100%;
 	font-size: 15px;
 }
 
 /*the delivery form*/
-.deliveryForm {
+.deliveryForm, .customerForm{
 	width: 40%;
 	margin: 100px auto 30px auto;
 	padding: 50px;
@@ -25,7 +25,7 @@ main {
 	border-radius: 10px;
 }
 
-.deliveryForm input {
+.deliveryForm input, .customerForm input {
 	font-size: 15px;
 	display: block;
 	margin: 5px 0 25px 0;
@@ -36,7 +36,7 @@ main {
 	height: 40px;
 }
 
-.deliveryForm input:last-child {
+.deliveryForm input:last-child, .customerForm input:last-child {
 	margin: 20px auto 0 auto;
 	color: white;
 	background-color: #32CD32;
