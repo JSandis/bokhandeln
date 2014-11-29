@@ -61,6 +61,45 @@ main {
 }
 
 
+/*section holding the search bar form (US3)*/
+.searchWithIsbn {
+	width: 100%;
+	font-size: 15px;
+}
+
+/*the search bar form*/
+.newSearchIsbn {
+	width: 40%;
+	margin: 100px auto 30px auto;
+	padding: 50px;
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.newSearchIsbn input {
+	font-size: 15px;
+	display: block;
+	margin: 5px 0 25px 0;
+	padding-left: 10px;
+	border: 0;
+	border-radius: 6px;
+	width: 90%;
+	height: 40px;
+}
+
+.newSearchIsbn input:last-child {
+	margin: 20px auto 0 auto;
+	color: white;
+	background-color: #32CD32;
+	cursor: pointer;
+	width: 60%;
+	height: 60px;
+}
+
+.newSearchIsbn input:last-child:hover {
+	background-color: #00FF00;
+}
+
 
 
 
