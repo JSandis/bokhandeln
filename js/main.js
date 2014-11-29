@@ -114,21 +114,6 @@ $(function(){
 		});
 
 
-		$.ajax({
-			url:"libs/sql-ajax-json.php",
-			dataType:"json",
-
-			data:{
-				sql:"sql/sql-queries.sql",
-				run:"search for title and quantity by isbn",
-			},
-
-			success: function(data){},
-
-			error: function(data){}
-
-		});
-
 
 		return false;
 	});
