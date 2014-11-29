@@ -40,8 +40,8 @@ $(function(){
 
 		});
 
-		//ajax for register delivery in book(isbn, title, description)
-		//to db/deliveries
+		//ajax for register delivery (isbn, title, description)
+		//to db/book
 		$.ajax({
 			url:"libs/sql-ajax-json.php",
 
@@ -54,6 +54,32 @@ $(function(){
 				isbn: JSON.stringify(deliveryInfo["isbn"]),
 				title: JSON.stringify(deliveryInfo["title"]),
 				description: JSON.stringify(deliveryInfo["description"])
+
+			},
+
+			success: function(data){
+				//console.log("success: ", data);
+			},
+
+			error: function(data){
+				//console.log("error: ", data);
+			}
+
+		});
+
+		//ajax for register delivery (authors)(first_name, last_name)
+		//to db/authors
+		$.ajax({
+			url:"libs/sql-ajax-json.php",
+
+			dataType:"json",
+
+			data:{
+				sql:"sql/sql-queries.sql",
+				run:"add author",
+				//data to send
+				first_name: JSON.stringify(deliveryInfo["first_name"]),
+				last_name: JSON.stringify(deliveryInfo["last_name"])
 
 			},
 
