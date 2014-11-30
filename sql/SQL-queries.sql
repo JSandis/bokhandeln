@@ -61,6 +61,3 @@ GROUP BY isbn;
 -- 
 
 
---# ??
---SELECT title, quantity FROM books INNER JOIN deliveries
---on books.isbn = deliveries.isbn;
