@@ -6,25 +6,29 @@
 
 
 -- FOR DELIVERY FORM
--- Shelfs will be shown in a drop-down list in form - must have shelfs saved
-# get shelfs
-SELECT * FROM shelfs;
+-- Shelfs will be shown in a drop-down list in form - must have shelves saved
+# get shelves
+SELECT shelf_id, code FROM shelves;
 --
 
 -- AFTER GETTING DATA FROM DELIVERY FORM
-# get isbn from books
+# get isbn
 SELECT isbn FROM books WHERE isbn = {isbn};
 
-# get authors
+# get author id
 SELECT author_id FROM authors WHERE first_name = {first_name} AND last_name = {last_name};
 
 -- If the author doesn't exist
 # add author
 INSERT INTO authors (first_name, last_name) Output Inserted.IdentityColumnName
 VALUES ({first_name}, {last_name});
--- DIRECTLY after adding author
-# get author_id
-SELECT LAST_INSERT_ID() AS author_id;
+--
+
+-- DIRECTLY AFTER INSERTING (and BEFORE inserting/updating in another table)
+-- Author id for register book OR
+-- Book id for register delivery
+# get last insert id
+SELECT LAST_INSERT_ID() AS id;
 --
 
 -- REGISTER DELIVERY OF A BOOK
