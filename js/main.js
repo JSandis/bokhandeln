@@ -113,8 +113,30 @@ $(function(){
 
 		});
 
+			//Multiplying f-price with 1.8 so it will become price.
+			price = f_price * 1.8;
+			//Call an AJAX-call for sending the price 
+			$.ajax({
+			url:"libs/sql-ajax-json.php",
+			dataType:"json",
 
+			data:{
+				sql:"sql/sql-queries.sql",
+				run:"register price",
+				//data to send
+				price: JSON.stringify(deliveryInfo["price"]),
+				isbn: JSON.stringify(deliveryInfo["isbn"])
+			},
 
+			success: function(data){
+				// console.log("data success: " , data);
+			},
+
+			error: function(data){
+				// console.log("data error: " , data);
+			}
+
+		});
 		return false;
 	});
 
