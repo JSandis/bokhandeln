@@ -5,7 +5,7 @@ $(function(){
 		var deliveryInfo = {};
 		//Here 'this' is the <form>
 		//ask HUGO about .not input type=reset
-		$(this).find('input').not("input[type='submit'], input[type='reset']").each(function(){
+		$(this).find('input').not("input[type='submit']").each(function(){
 			//Here 'this' is the each input on <form>
 			deliveryInfo[this.name] = $(this).val();
 		});
@@ -31,11 +31,11 @@ $(function(){
 			},
 
 			success: function(data){
-				console.log("success: ", data);
+				//console.log("success: ", data);
 			},
 
 			error: function(data){
-				console.log("error: ", data);
+				//console.log("error: ", data);
 			}
 
 		});
@@ -95,22 +95,22 @@ $(function(){
 
 
 		//ajax for register (isbn, shelfs_id) to db/book_shelfs
-		// $.ajax({
-		// 	url:"libs/sql-ajax-json.php",
-		// 	dataType:"json",
+		$.ajax({
+			url:"libs/sql-ajax-json.php",
+			dataType:"json",
 
-		// 	data:{
-		// 		sql:"sql/sql-queries.sql",
-		// 		run:"register shelfs",
-		// 		//data to send
-		// 		code: JSON.stringify(deliveryInfo["code"])
-		// },
+			data:{
+				sql:"sql/sql-queries.sql",
+				run:"register shelfs",
+				//data to send
+				code: JSON.stringify(deliveryInfo["code"])
+		},
 
-		// 	success: function(data){},
+			success: function(data){},
 
-		// 	error: function(data){}
+			error: function(data){}
 
-		// });
+		});
 
 
 
