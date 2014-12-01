@@ -29,8 +29,12 @@ SELECT LAST_INSERT_ID() AS author_id;
 
 -- REGISTER DELIVERY OF A BOOK
 # register book
-INSERT INTO books (isbn, title, description, author_id, shelf_id)
-VALUES ({isbn}, {title}, {description}, {author_id}, {shelf_id});
+INSERT INTO books (isbn, title, description)
+VALUES ({isbn}, {title}, {description});
+
+# register shelfs
+INSERT INTO shelves (code)
+VALUES ({code});
 
 # register delivery
 INSERT INTO deliveries (isbn, f_price, date, quantity)
